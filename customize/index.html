@@ -342,23 +342,13 @@
 
 
 <h2 id="tag-plugin-settings"><a name="user-content-tag-plugin-settings" href="#tag-plugin-settings" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Tag Plugin Settings</h2>
-<p>Tag settings found in <code>bh_tag.sublime-settings</code>.</p>
-<h3 id="tag_style"><a name="user-content-tag_style" href="#tag_style" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>tag_style</h3>
-<p>Sets the highlight style for the tag plugin.  The string value should correspond to a style entry in <code>bracket_styles</code>.  See <a href="#configuring-highlight-style">Configuring Highlight Style</a> for more info.</p>
-<div class="codehilite"><pre><span></span>    <span class="c1">// Style to use for matched tags</span>
-    <span class="s2">&quot;tag_style&quot;</span><span class="o">:</span> <span class="s2">&quot;tag&quot;</span><span class="p">,</span>
-</pre></div>
-
-
-<h3 id="tag_scope_exclude"><a name="user-content-tag_scope_exclude" href="#tag_scope_exclude" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>tag_scope_exclude</h3>
-<p>Excludes certain scopes from being evaluated when searching for tags.</p>
-<div class="codehilite"><pre><span></span>    <span class="c1">// Scopes to exclude from tag searches</span>
-    <span class="s2">&quot;tag_scope_exclude&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="s2">&quot;comment&quot;</span><span class="p">],</span>
-</pre></div>
-
-
+<p>Tag settings found in <code>bh_tag.sublime-settings</code>.  All tag settings are dictionaries.  Each key is represents a tag mode such as: <code>html</code>, <code>xhtml</code>, <code>cfml</code>, etc.  All of these are exposed so that even non-standard HTML syntax can be supported.</p>
+<div class="admonition warning">
+<p class="admonition-title">Attention!</p>
+<p>More tag mode keys can be added, but they <strong>must</strong> be added to <strong>every</strong> setting with valid parameters.</p>
+</div>
 <h3 id="tag_mode"><a name="user-content-tag_mode" href="#tag_mode" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>tag_mode</h3>
-<p>A directory that contains a dictionary of three modes: <code>xhtml</code>, <code>html</code>, <code>cfml</code>.  Each mode tweaks the tag matching for the respective mode.  Each entry in the dictionary consists of a list of languages that should be evaluated in that mode.</p>
+<p>A directory that contains a dictionary of different modes.  Each mode tweaks the tag matching for the respective mode.  Each entry in the dictionary consists of a list of languages that should be evaluated in that mode.</p>
 <div class="codehilite"><pre><span></span>    <span class="c1">// Determine which style of tag-matching to use in which syntax</span>
     <span class="s2">&quot;tag_mode&quot;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;xhtml&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;XML&quot;</span><span class="p">],</span>
@@ -368,24 +358,95 @@
 </pre></div>
 
 
-<h3 id="self_closing_tags"><a name="user-content-self_closing_tags" href="#self_closing_tags" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>self_closing_tags</h3>
-<p>A list of tag names that will be evaluated as self closing.</p>
-<div class="codehilite"><pre><span></span>    <span class="c1">// Self closing HTML tags</span>
-    <span class="s2">&quot;self_closing_tags&quot;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="s2">&quot;colgroup&quot;</span><span class="p">,</span> <span class="s2">&quot;dd&quot;</span><span class="p">,</span> <span class="s2">&quot;dt&quot;</span><span class="p">,</span> <span class="s2">&quot;li&quot;</span><span class="p">,</span> <span class="s2">&quot;options&quot;</span><span class="p">,</span> <span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;td&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;tfoot&quot;</span><span class="p">,</span> <span class="s2">&quot;th&quot;</span><span class="p">,</span> <span class="s2">&quot;thead&quot;</span><span class="p">,</span> <span class="s2">&quot;tr&quot;</span>
-    <span class="p">],</span>
+<h3 id="tag_style"><a name="user-content-tag_style" href="#tag_style" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>tag_style</h3>
+<p>Sets the highlight style for the tag plugin.  The string value should correspond to a style entry in <code>bracket_styles</code>.  See <a href="#configuring-highlight-style">Configuring Highlight Style</a> for more info.</p>
+<div class="codehilite"><pre><span></span>    <span class="c1">// Style to use for matched tags</span>
+    <span class="s2">&quot;tag_style&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;xhtml&quot;</span><span class="o">:</span> <span class="s2">&quot;tag&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;html&quot;</span><span class="o">:</span> <span class="s2">&quot;tag&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cfml&quot;</span><span class="o">:</span> <span class="s2">&quot;tag&quot;</span>
+    <span class="p">},</span>
 </pre></div>
 
 
-<h3 id="single_tags"><a name="user-content-single_tags" href="#single_tags" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>single_tags</h3>
-<p>A list of tag names that never have a closing tag.</p>
-<div class="codehilite"><pre><span></span>    <span class="c1">// Tags that never have a closing</span>
-    <span class="s2">&quot;single_tags&quot;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="s2">&quot;area&quot;</span><span class="p">,</span> <span class="s2">&quot;base&quot;</span><span class="p">,</span> <span class="s2">&quot;basefont&quot;</span><span class="p">,</span> <span class="s2">&quot;br&quot;</span><span class="p">,</span> <span class="s2">&quot;col&quot;</span><span class="p">,</span> <span class="s2">&quot;embed&quot;</span><span class="p">,</span> <span class="s2">&quot;frame&quot;</span><span class="p">,</span> <span class="s2">&quot;hr&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;img&quot;</span><span class="p">,</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span> <span class="s2">&quot;isindex&quot;</span><span class="p">,</span> <span class="s2">&quot;keygen&quot;</span><span class="p">,</span> <span class="s2">&quot;link&quot;</span><span class="p">,</span> <span class="s2">&quot;meta&quot;</span><span class="p">,</span> <span class="s2">&quot;param&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="s2">&quot;track&quot;</span><span class="p">,</span> <span class="s2">&quot;wbr&quot;</span>
-    <span class="p">]</span>
+<h3 id="tag_scope_exclude"><a name="user-content-tag_scope_exclude" href="#tag_scope_exclude" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>tag_scope_exclude</h3>
+<p>Excludes certain scopes from being evaluated when searching for tags.</p>
+<div class="codehilite"><pre><span></span>    <span class="c1">// Scopes to exclude from tag searches.</span>
+    <span class="s2">&quot;tag_scope_exclude&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;xhtml&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="s2">&quot;comment&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;html&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="s2">&quot;comment&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;cfml&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="s2">&quot;comment&quot;</span><span class="p">]</span>
+    <span class="p">},</span>
+</pre></div>
+
+
+<h3 id="self_closing_patterns"><a name="user-content-self_closing_patterns" href="#self_closing_patterns" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>self_closing_patterns</h3>
+<p>Specifies a regex pattern for names that will be evaluated as self closing. <code>null</code> can be used to specify that there is no pattern for specified tag mode.</p>
+<div class="codehilite"><pre><span></span>    <span class="c1">// Self closing HTML tags. You can use &#39;null&#39; if it does not require a pattern.</span>
+    <span class="s2">&quot;self_closing_patterns&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;xhtml&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="s2">&quot;html&quot;</span><span class="o">:</span> <span class="s2">&quot;colgroup|dd|dt|li|options|p|td|tfoot|th|thead|tr&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cfml&quot;</span><span class="o">:</span> <span class="s2">&quot;cf.+|colgroup|dd|dt|li|options|p|td|tfoot|th|thead|tr&quot;</span>
+    <span class="p">},</span>
+</pre></div>
+
+
+<h3 id="single_tag_patterns"><a name="user-content-single_tag_patterns" href="#single_tag_patterns" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>single_tag_patterns</h3>
+<p>Specifies a regex pattern for names that never have a closing tag.  <code>null</code> can be used to specify that there is no pattern for specified tag mode.</p>
+<div class="codehilite"><pre><span></span>    <span class="c1">// Tags that never have a closing.  You can use &#39;null&#39; if it does not require a pattern.</span>
+    <span class="s2">&quot;single_tag_patterns&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;xhtml&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="s2">&quot;html&quot;</span><span class="o">:</span> <span class="s2">&quot;area|base|basefont|br|col|embed|frame|hr|img|input|isindex|keygen|link|meta|param|source|track|wbr&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cfml&quot;</span><span class="o">:</span> <span class="s2">&quot;area|base|basefont|br|col|embed|frame|hr|img|input|isindex|keygen|link|meta|param|source|track|wbr&quot;</span>
+    <span class="p">},</span>
+</pre></div>
+
+
+<h3 id="tag_name"><a name="user-content-tag_name" href="#tag_name" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>tag_name</h3>
+<p>Specifies the regex pattern for identifying the tag name for a given tag mode.  This is broken out as a separate pattern so that the <code>tagattrselect</code> bh_plugin needs access to the tag_name and tag attributes separate form the whole HTML tag regex.</p>
+<div class="codehilite"><pre><span></span>    <span class="c1">// Regex for tag name. Do not use capturing groups.</span>
+    <span class="s2">&quot;tag_name&quot;</span><span class="o">:</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;xhtml&quot;</span><span class="o">:</span> <span class="s2">&quot;[\\w:\\.\\-]+&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;html&quot;</span><span class="o">:</span> <span class="s2">&quot;[\\w:\\.\\-]+&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cfml&quot;</span><span class="o">:</span> <span class="s2">&quot;[\\w:\\.\\-]+&quot;</span>
+    <span class="p">},</span>
+</pre></div>
+
+
+<h3 id="attributes"><a name="user-content-attributes" href="#attributes" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>attributes</h3>
+<p>Specifies the regex pattern for identifying the tag attributes for a given tag mode.  This is broken out as a separate pattern so that the <code>tagattrselect</code> bh_plugin needs access to the tag_name and tag attributes separate from the whole HTML tag regex.</p>
+<div class="codehilite"><pre><span></span>    <span class="c1">// HTML attributes.  Do not use capturing groups.</span>
+    <span class="s2">&quot;attributes&quot;</span><span class="o">:</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;xhtml&quot;</span><span class="o">:</span> <span class="s2">&quot;[\\w\\-:]+(?:\\s*=\\s*(?:\&quot;(?:\\.|[^\&quot;])*\&quot;|&#39;(?:\\.|[^&#39;])*&#39;))?&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;html&quot;</span><span class="o">:</span> <span class="s2">&quot;[\\w\\-:]+(?:\\s*=\\s*(?:\&quot;[^\&quot;]*\&quot;|&#39;[^&#39;]*&#39;|[^\\s\&quot;&#39;`=&lt;&gt;]+))?&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cfml&quot;</span><span class="o">:</span> <span class="s2">&quot;[\\w\\-\\.:]+(?:\\s*=\\s*(?:\&quot;[^\&quot;]*\&quot;|&#39;[^&#39;]*&#39;|[^\\s\&quot;&#39;`=&lt;&gt;]+))?&quot;</span>
+    <span class="p">},</span>
+</pre></div>
+
+
+<h3 id="start_tag"><a name="user-content-start_tag" href="#start_tag" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>start_tag</h3>
+<p>Specifies the starting/opening tag regex.  The pattern can accept the tag name and attribute portion of the pattern from the <a href="#tag_name"><code>tag_name</code></a> and <a href="#attributes"><code>attributes</code></a> settings via the python string formatting variables <code>tag_name</code> and <code>attributes</code>: see example below.  <code>tag_name</code> and <code>attributes</code> are broken out as a separate patterns so that the <code>tagattrselect</code> bh_plugin can have access to the tag_name and tag attributes separate from the whole HTML tag regex.</p>
+<div class="codehilite"><pre><span></span>    <span class="c1">// Regex for start/opening tag.  Use a capturing group for tag name and self closing indicator &#39;/&#39; only.</span>
+    <span class="c1">// Attributes and tag names are inserted using python string formatting:</span>
+    <span class="c1">// the keyword &#39;attributes&#39; and `tag_name` are used.</span>
+    <span class="s2">&quot;start_tag&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;xhtml&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;(%(tag_name)s)(?:\\s+%(attributes)s)*\\s*(/?)&gt;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;html&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;(%(tag_name)s)(?:\\s+%(attributes)s)*\\s*(/?)&gt;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cfml&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;(%(tag_name)s)(?:(?:\\s+%(attributes)s)*|(?:(?&lt;=cfif)|(?&lt;=cfelseif))[^&gt;]+)\\s*(/?)&gt;&quot;</span>
+    <span class="p">},</span>
+</pre></div>
+
+
+<h3 id="end_tag"><a name="user-content-end_tag" href="#end_tag" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>end_tag</h3>
+<p>Specifies the ending/closing tag regex.</p>
+<div class="codehilite"><pre><span></span>    <span class="c1">// Regex for end/closing tag.  Only use a capturing group for name.</span>
+    <span class="s2">&quot;end_tag&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;xhtml&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;/([\\w\\:\\.\\-]+)[^&gt;]*&gt;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;html&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;/([\\w\\:\\.\\-]+)[^&gt;]*&gt;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cfml&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;/([\\w\\:\\.\\-]+)[^&gt;]*&gt;&quot;</span>
+    <span class="p">}</span>
 </pre></div>
 
 
