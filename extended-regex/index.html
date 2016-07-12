@@ -69,25 +69,20 @@
 <li>
           
             <li>
-    <ul class="subnav">
-    <li><span>User Guide</span></li>
-
-        
-            
     <li class="toctree-l1 ">
-        <a class="" href="../usage/">Usage</a>
+        <a class="" href="../usage/">Basic Usage</a>
         
     </li>
-
-        
-            
+<li>
+          
+            <li>
     <li class="toctree-l1 ">
         <a class="" href="../customize/">Customizing</a>
         
     </li>
-
-        
-            
+<li>
+          
+            <li>
     <li class="toctree-l1 current">
         <a class="current" href="./">Extended Regex Guide</a>
         
@@ -97,13 +92,14 @@
                 
                     <li><a class="toctree-l4" href="#overview">Overview</a></li>
                 
+                    <li><a class="toctree-l4" href="#getting-the-latest-backrefs">Getting the Latest Backrefs</a></li>
+                
+                    <li><a class="toctree-l4" href="#using-backrefs-in-brackethighlighter-plugins">Using Backrefs in BracketHighlighter Plugins</a></li>
+                
             
             </ul>
         
     </li>
-
-        
-    </ul>
 <li>
           
             <li>
@@ -141,10 +137,6 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
-        
-          <li>User Guide &raquo;</li>
-        
-      
     
     <li>Extended Regex Guide</li>
     <li class="wy-breadcrumbs-aside">
@@ -166,9 +158,9 @@
 <p>BH uses Python&rsquo;s re regex engine, but it also adds some additional back references to aid in the creation of bracket patterns.  This is done with a custom wrapper called backrefs that was originally written for <a href="https://github.com/facelessuser/RegReplace">RegReplace</a>.</p>
 <p>Backrefs was written to add various additional backrefs that are known to some regex engines, but not to Python&rsquo;s re.  Backrefs adds: <code>\p</code>, <code>\P</code>, <code>\u</code>, <code>\U</code>, <code>\l</code>, <code>\L</code>, <code>\Q</code> or <code>\E</code> (though <code>\u</code> and <code>\U</code> are replaced with <code>\c</code> and <code>\C</code>).</p>
 <p>You can read more about backrefs&rsquo; features in the <a href="https://github.com/facelessuser/sublime-backrefs/blob/master/readme.md">backrefs documentation</a>.</p>
-<h3 id="getting-the-latest-backrefs"><a name="user-content-getting-the-latest-backrefs" href="#getting-the-latest-backrefs" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Getting the Latest Backrefs</h3>
+<h2 id="getting-the-latest-backrefs"><a name="user-content-getting-the-latest-backrefs" href="#getting-the-latest-backrefs" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Getting the Latest Backrefs</h2>
 <p>It is not always clear when Package Control updates dependencies.  So to force dependency updates, you can run Package Control&rsquo;s <code>Satisfy Dependencies</code> command which will update to the latest release.</p>
-<h3 id="using-backrefs-in-brackethighlighter-plugins"><a name="user-content-using-backrefs-in-brackethighlighter-plugins" href="#using-backrefs-in-brackethighlighter-plugins" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Using Backrefs in BracketHighlighter Plugins</h3>
+<h2 id="using-backrefs-in-brackethighlighter-plugins"><a name="user-content-using-backrefs-in-brackethighlighter-plugins" href="#using-backrefs-in-brackethighlighter-plugins" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Using Backrefs in BracketHighlighter Plugins</h2>
 <p>You can import backrefs into a <code>bh_plugin</code>:</p>
 <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">backrefs</span> <span class="nn">as</span> <span class="nn">bre</span>
 </pre></div>

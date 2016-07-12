@@ -8,7 +8,7 @@
   
   
   
-  <title>Usage - BracketHighlighter Documentation</title>
+  <title>Basic Usage - BracketHighlighter Documentation</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -24,7 +24,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Usage";
+    var mkdocs_page_name = "Basic Usage";
     var mkdocs_page_input_path = "usage.md";
     var mkdocs_page_url = "/usage/";
   </script>
@@ -69,17 +69,12 @@
 <li>
           
             <li>
-    <ul class="subnav">
-    <li><span>User Guide</span></li>
-
-        
-            
     <li class="toctree-l1 current">
-        <a class="current" href="./">Usage</a>
+        <a class="current" href="./">Basic Usage</a>
         
             <ul>
             
-                <li class="toctree-l3"><a href="#user-guide">User Guide</a></li>
+                <li class="toctree-l3"><a href="#basic-usage">Basic Usage</a></li>
                 
                     <li><a class="toctree-l4" href="#general-use">General Use</a></li>
                 
@@ -97,23 +92,20 @@
             </ul>
         
     </li>
-
-        
-            
+<li>
+          
+            <li>
     <li class="toctree-l1 ">
         <a class="" href="../customize/">Customizing</a>
         
     </li>
-
-        
-            
+<li>
+          
+            <li>
     <li class="toctree-l1 ">
         <a class="" href="../extended-regex/">Extended Regex Guide</a>
         
     </li>
-
-        
-    </ul>
 <li>
           
             <li>
@@ -151,12 +143,8 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
-        
-          <li>User Guide &raquo;</li>
-        
-      
     
-    <li>Usage</li>
+    <li>Basic Usage</li>
     <li class="wy-breadcrumbs-aside">
       
         
@@ -170,11 +158,12 @@
           <div role="main">
             <div class="section">
               
-                <h1 class="doctitle" id="user-guide"><a name="user-content-user-guide" href="#user-guide" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>User Guide</h1>
+                <h1 class="doctitle" id="basic-usage"><a name="user-content-basic-usage" href="#basic-usage" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Basic Usage</h1>
 <p>How to use BracketHighlighter.</p>
 <hr />
 <h2 id="general-use"><a name="user-content-general-use" href="#general-use" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>General Use</h2>
 <p>In general, BracketHighlighter (<abbr title="BracketHighlighter">BH</abbr>) will highlight brackets (or defined brackets like start and end blocks) surrounding the cursor.  By default, <abbr title="BracketHighlighter">BH</abbr> will put opening and closing icons in the gutter of the corresponding line containing open or closing bracket.</p>
+<p>If you are using Sublime Text build 3116+, a new feature has been added which shows a popup when you mouse over a bracket that has its matching bracket pair off screen.  It will show where the other bracket is located with line context and and provide a link to jump to the other bracket.  When mousing over a bracket in which the match could not be found, a popup explaining why this might be will show up giving you the option to click a link which will perform a search without thresholds to see if it can find the brackets when restraints are removed.</p>
 <h2 id="built-in-supported-brackets"><a name="user-content-built-in-supported-brackets" href="#built-in-supported-brackets" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Built-in Supported brackets</h2>
 <p><abbr title="BracketHighlighter">BH</abbr> supports a variety of brackets out of the box; here are some examples:</p>
 <ul>
