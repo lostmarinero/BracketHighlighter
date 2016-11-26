@@ -154,6 +154,16 @@
 <hr />
 <h2 id="general-use"><a name="user-content-general-use" href="#general-use" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>General Use</h2>
 <p>In general, BracketHighlighter (<abbr title="BracketHighlighter">BH</abbr>) will highlight brackets (or defined brackets like start and end blocks) surrounding the cursor.  By default, <abbr title="BracketHighlighter">BH</abbr> will put opening and closing icons in the gutter of the corresponding line containing open or closing bracket.</p>
+<p>It is advised that you disable Sublime&rsquo;s default bracket and tag matcher in your <code>Preferences.sublime-settings</code> file or you will have matching conflicts:</p>
+<div class="codehilite"><pre><span></span>    <span class="s2">&quot;match_brackets&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">&quot;match_brackets_angle&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">&quot;match_brackets_braces&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">&quot;match_brackets_content&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">&quot;match_brackets_square&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">&quot;match_tags&quot;</span><span class="o">:</span> <span class="kc">false</span>
+</pre></div>
+
+
 <p>If you are using Sublime Text build 3116+, a new feature has been added which shows a popup when you mouse over a bracket that has its matching bracket pair off screen.  It will show where the other bracket is located with line context and and provide a link to jump to the other bracket.  When mousing over a bracket in which the match could not be found, a popup explaining why this might be will show up giving you the option to click a link which will perform a search without thresholds to see if it can find the brackets when restraints are removed.</p>
 <h2 id="built-in-supported-brackets"><a name="user-content-built-in-supported-brackets" href="#built-in-supported-brackets" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Built-in Supported brackets</h2>
 <p><abbr title="BracketHighlighter">BH</abbr> supports a variety of brackets out of the box; here are some examples:</p>
